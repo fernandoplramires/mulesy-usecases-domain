@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain:mule-domain
+        xmlns:http="http://www.mulesoft.org/schema/mule/http"
+        xmlns:file="http://www.mulesoft.org/schema/mule/file"
+        xmlns="http://www.mulesoft.org/schema/mule/core"
+        xmlns:domain="http://www.mulesoft.org/schema/mule/ee/domain"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xsi:schemaLocation="
+               http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+               http://www.mulesoft.org/schema/mule/ee/domain http://www.mulesoft.org/schema/mule/ee/domain/current/mule-domain-ee.xsd
+               http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+    <!-- configure here resource to be shared within the domain -->
+    <!-- global-property doc:name="Global Property" doc:id="c8eb228c-b052-46b3-8e72-0618a0bf2368" name="databaseDirectory" value='${mule.home}/apps/${app.name}/' /-->
+
+    <http:listener-config name="domain_httpListenerConfig">
+        <http:listener-connection host="0.0.0.0" port="8081" />
+    </http:listener-config>
+    
+    <file:config name="domain_FileConfig" doc:name="File Config" doc:id="e7b1434b-4b0e-443b-8e3b-11579ac82ec5" >
+		<file:connection workingDir="${mule.home}/apps/" />
+	</file:config>
+</domain:mule-domain>
